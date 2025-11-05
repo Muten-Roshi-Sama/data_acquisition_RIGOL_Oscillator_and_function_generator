@@ -1,0 +1,17 @@
+pyvisa-py
+zeroconf
+pyserial
+numpy
+matplotlib
+pyusb
+psutil
+
+# To use our venv as ipynb kernel
+ipykernel
+jupyter
+
+# Windows / Mac
+pyvisa
+
+# Linux
+# usbutils
