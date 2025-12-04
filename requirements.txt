@@ -1,4 +1,4 @@
-pyvisa-py
+# pyvisa-py
 zeroconf
 pyserial
 numpy
