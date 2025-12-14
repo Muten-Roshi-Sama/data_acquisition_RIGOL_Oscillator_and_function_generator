@@ -7,3 +7,4 @@ from Rigol.DS1104ZPLUS import capture_waveform, save_waveform_capture, load_wave
 
 __all__ = ["capture_waveform", "save_waveform_capture", "load_waveform_capture"]
 
+
