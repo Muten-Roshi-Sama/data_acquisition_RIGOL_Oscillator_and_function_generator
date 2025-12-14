@@ -1,28 +1,49 @@
-# data_acquisition_RIGOL_Oscillator_and_function_generator
-
+# RIGOL-data-acquisition
 Tools and notebooks to drive a Rigol DS1104-Z-PLUS Oscilloscope and the Rigol DG1022 function generator.
 
-Note : 
-- This code is for a linux (Fedora) machine, connection to the rigol instruments vary from OS. For windows you might need to modify the function and class within RIGOL.py.
+> Author : vass  
+> Special thanks to [valatras](https://github.com/Valatras)
+
+## Contents
+- `lab/RIGOL_data_acquisition.ipynb`: Connection workflow and basic scope/gen operations.
+- `LM741/lm741.ipynb`: LM741 characterization (GBW, Bode, slew rate, rise time & overshoot, output swing with binary-search clipping detection, offset). WIP: CMRR, PSRR, Ib, Ios.
+- `Rigol/`: Classes and helpers (`detect_rigol_instruments`, etc.).
+
+
+## Requirements
+- OS: Linux (Fedora tested). 
+- Windows may need tweaks (see class and function in `Rigol/RIGOL.py`).
+- Python: 3.14 + venv (see Setup and Debug).
+- Hardware: Rigol DS1104Z-Plus, Rigol DG1022 (or similar).
+
 
 ## Lab tests : 
-_in /lab/RIGOL_data_acquisition.ipynb_
+_in `/lab/RIGOL_data_acquisition.ipynb`_
 
-Workflow and tutorials to connect and use basic functions on the function generator and oscilloscope.
+- Workflow/tutorial to connect and verify scope/gen comms
+- Basic operations: set waveforms, triggers, captures
+- Quick sanity checks before running characterization notebooks
 
 ## LM741 characterization :
-_in /LM741/lm741.ipynb_
+_in `/LM741/lm741.ipynb`_
 
-Verification of the following LM741 values found in it's Datasheet :
-- gain/Bode, 
-- slew rate, 
-- overshoot, 
-- clipping, 
-- CMRR, offsets.
+Full verification workflow of LM741 key datasheet values :
+- Gain-Bandwidth Product
+- Bode diagram
+- Slew rate
+- Rise Time & Overshoot
+- clipping of Output Voltage Swing (binary search detection)
+- Offset Voltage
 
+(WIP:)
+- CMRR
+- PSSR
+- Input Bias Current (Ib) 
+- Input Offset Current (Ios)
+
+---
 Note : 
-- This file uses the /Rigol definitions and classes to run. Make sure the pyproject.toml is well installed.
-
+- Uses the `Rigol/` definitions and classes; ensure the pyproject.toml package is installed (e.g., `pip install -e .` in your venv).
 
 
 ## Setup & Debug
@@ -110,7 +131,8 @@ Check if usbtmc is loaded :
 > lsmod | grep usbtmc
 
 
-
+---
+---
 
 ### Windows (Old, might not work)
 
@@ -142,6 +164,9 @@ DG1022 :
 
 If Rigol devices are not detected, use : 
 - Device Manager (Windows)
+
+
+
 
 
 
